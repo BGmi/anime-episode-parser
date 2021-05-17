@@ -6,10 +6,14 @@ try parse episode info from title
 poetry add anime_episode_parser
 ```
 
-```python
+```python3
 from anime_episode_parser import parse_episode
 
-print(parse_episode('[YMDR][哥布林殺手][Goblin Slayer][2018][01][1080p][AVC][JAP][BIG5][MP4-AAC][繁中]'))
+title = '[YMDR][哥布林殺手][Goblin Slayer][2018][05][1080p][AVC][JAP][BIG5][MP4-AAC][繁中]'
+assert (5, 1) == parse_episode(title)
 
-
+# 5 for episode start
+# 1 for episodes count
+# `None` for un-determined episode
+# episode range is not implemented yet.
 ```
