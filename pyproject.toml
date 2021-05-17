@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "anime-episode-parser"
-version = "0.0.3"
+version = "0.0.4"
 description = 'BGmi is a cli tool for subscribed bangumi.'
 authors = ["Trim21 <trim21me@gmail.com>", "RicterZ <ricterzheng@gmail.com>"]
 readme = 'README.md'
