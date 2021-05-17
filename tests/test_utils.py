@@ -14,9 +14,10 @@ _episode_cases: List[Tuple[str, int]] = [
     ("OVA 噬血狂袭 Strike the Blood IV [E01][720P][GB][BDrip]", (1, 1)),
     ("Kumo Desu ga, Nanika - 01 v2 [1080p][繁体]", (1, 1)),
     ("Re Zero Isekai Seikatsu S02 - 17 [Baha][1080p][AVC AAC]", (17, 1)),
-    # range as 0
-    ("[从零开始的异世界生活 第二季_Re Zero S2][34-35][繁体][720P][MP4]", None),
-    ("Strike The Blood IV][OVA][05-06][1080P][GB][MP4]", None),
+    # range
+    ("【安達與島村】【第01-02話】【1080P】【繁體中文】【AVC】", (1, 2)),
+    ("[从零开始的异世界生活 第二季_Re Zero S2][34-35][繁体][720P][MP4]", (34, 2)),
+    ("Strike The Blood IV][OVA][05-06][1080P][GB][MP4]", (5, 2)),
     ("[Legend of the Galactic Heroes 银河英雄传说][全110话+外传+剧场版][MKV][外挂繁中]", None),
     ("不知道什么片 全二十话", None),
     ("不知道什么片 全20话", None),

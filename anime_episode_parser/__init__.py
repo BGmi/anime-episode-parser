@@ -13,8 +13,8 @@ FETCH_EPISODE_ZH = re.compile(r"第?\s?(\d{1,3})\s?[話话集]")
 FETCH_EPISODE_ALL_ZH = re.compile(r"第([^第]*?)[話话集]")
 FETCH_EPISODE_ONLY_NUM = re.compile(r"^([\d]{2,})$")
 
-FETCH_EPISODE_RANGE = re.compile(r"[^sS][\d]{2,}\s?-\s?([\d]{2,})")
-FETCH_EPISODE_RANGE_ZH = re.compile(r"[第][\d]{2,}\s?-\s?([\d]{2,})\s?[話话集]")
+FETCH_EPISODE_RANGE = re.compile(r"[^sS]([\d]{2,})\s?-\s?([\d]{2,})")
+FETCH_EPISODE_RANGE_ZH = re.compile(r"[第]([\d]{2,})\s?-\s?([\d]{2,})\s?[話话集]")
 FETCH_EPISODE_RANGE_ALL_ZH_1 = re.compile(r"[全]([\d-]*?)[話话集]")
 FETCH_EPISODE_RANGE_ALL_ZH_2 = re.compile(r"第?(\d-\d)[話话集]")
 
@@ -56,13 +56,14 @@ def parse_episode(episode_title: str) -> Union[Tuple[int, int], None]:
 
     _ = FETCH_EPISODE_RANGE.findall(episode_title)
     if _ and _[0]:
-        logger.debug("return episode range")
-        return None
+        _ = _[0]
+        logger.debug("return episode range %s", _)
+        return int(_[0]), int(_[1]) - int(_[0]) + 1
 
     _ = FETCH_EPISODE_RANGE_ZH.findall(episode_title)
     if _ and _[0]:
         logger.debug("return episode range zh")
-        return None
+        return int(_[0]), int(_[1]) - int(_[0])
 
     _ = FETCH_EPISODE_ZH.findall(episode_title)
     if _ and _[0].isdigit():

@@ -14,6 +14,10 @@ assert (5, 1) == parse_episode(title)
 
 # 5 for episode start
 # 1 for episodes count
-# `None` for un-determined episode
-# episode range is not implemented yet.
+
+title = '[从零开始的异世界生活 第二季_Re Zero S2][34-35][繁体][720P][MP4]'
+assert (34, 2) == parse_episode(title)
+
+# 34 for episode start
+# 2 for episodes count
 ```
