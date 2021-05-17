@@ -102,7 +102,7 @@ FETCH_EPISODE = (
 )
 
 
-def parse_episode(episode_title: str) -> int:
+def parse_episode(episode_title: str) -> Union[int, None]:
     """
     parse episode from title
     :param episode_title: episode title
@@ -119,17 +119,17 @@ def parse_episode(episode_title: str) -> int:
         _ = pattern.findall(episode_title)
         if _ and _[0]:
             logger.debug("return episode range all zh '%s'", pattern.pattern)
-            return int(0)
+            return None
 
     _ = FETCH_EPISODE_RANGE.findall(episode_title)
     if _ and _[0]:
         logger.debug("return episode range")
-        return int(0)
+        return None
 
     _ = FETCH_EPISODE_RANGE_ZH.findall(episode_title)
     if _ and _[0]:
         logger.debug("return episode range zh")
-        return int(0)
+        return None
 
     _ = FETCH_EPISODE_ZH.findall(episode_title)
     if _ and _[0].isdigit():
@@ -175,4 +175,4 @@ def parse_episode(episode_title: str) -> int:
     if spare:
         return spare
 
-    return 0
+    return None

@@ -68,5 +68,5 @@ use_parentheses = true
 include_trailing_comma = true
 
 [tool.pytest.ini_options]
-addopts = '-v --durations=10'
+addopts = '-rqa'
 junit_family = 'legacy'
