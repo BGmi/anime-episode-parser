@@ -28,7 +28,7 @@ jobs:
         run: |
           docker pull quay.io/git-chglog/git-chglog:latest
           docker run -v "$PWD":/workdir quay.io/git-chglog/git-chglog "$TAG" | \
-          python -c 'import sys;print("".join(sys.stdin.readlines()[3:]).strip())' > chglog.md
+          python -c 'import sys;print("".join(sys.stdin.readlines()[4:]).strip())' > chglog.md
 
       - name: Upload Github Release
         run: gh release create "$TAG" -F chglog.md ./dist/*
