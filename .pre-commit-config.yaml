@@ -1,0 +1,49 @@
+repos:
+  - repo: https://github.com/Trim21/pre-commit-hooks
+    rev: 1586f0d19e5685e59cbe827988f5360df0f334b5  # frozen: v0.3.0
+    hooks:
+      - id: yamlfmt
+      - id: poetry-check-lock
+      - id: find-trailing-comma
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 38b88246ccc552bffaaf54259d064beeee434539  # frozen: v4.0.1
+    hooks:
+      - id: check-merge-conflict
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-docstring-first
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-json
+      - id: check-added-large-files  # check for file bigger than 500kb
+      - id: check-yaml
+      - id: debug-statements
+      - id: fix-encoding-pragma
+        args: [--remove]
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: c2e71d194a5991d8f6a2e37813c8d206eb19e3d1  # frozen: v2.16.0
+    hooks:
+      - id: pyupgrade
+        args: [--py36-plus]
+
+  - repo: https://github.com/myint/autoflake
+    rev: 7a53fdafc82c33f446915b60fcac947c51279260  # frozen: v1.4
+    hooks:
+      - id: autoflake
+        args:
+          - --in-place
+          - --remove-unused-variables
+          - --remove-all-unused-imports
+          - --expand-star-imports
+
+  - repo: https://github.com/timothycrosley/isort
+    rev: a6222a8a125ec719724e628a5d3d0d5c60923281  # frozen: 5.8.0
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/psf/black
+    rev: 2f52e4b4929370ec503ee272bcc10d3176db8e89  # frozen: 21.5b1
+    hooks:
+      - id: black

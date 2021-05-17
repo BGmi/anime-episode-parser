@@ -1,0 +1,72 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "anime-episode-parser"
+version = "0.0.1"
+description = 'BGmi is a cli tool for subscribed bangumi.'
+authors = ["Trim21 <trim21me@gmail.com>", "RicterZ <ricterzheng@gmail.com>"]
+readme = 'README.md'
+license = 'MIT'
+homepage = 'https://github.com/BGmi/anime-episode-parser'
+repository = 'https://github.com/BGmi/anime-episode-parser'
+keywords = ['anime']
+classifiers = [
+  'Development Status :: 4 - Beta',
+  'Intended Audience :: Other Audience',
+  'Natural Language :: Chinese (Traditional)',
+  'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python',
+  'Programming Language :: Python :: 3.6',
+  'Programming Language :: Python :: 3.7',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: Implementation :: CPython',
+  'Programming Language :: Python :: Implementation :: PyPy'
+]
+packages = [{ include = "anime_episode_parser" }]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+
+[tool.poetry.dev-dependencies]
+# tests
+coverage = { version = "5.5", extras = ['toml'] }
+pytest = "6.2.4"
+# lint
+pre-commit = { version = "2.12.1", markers = "implementation_name != 'pypy'" }
+mypy = { version = "0.812", markers = "implementation_name != 'pypy'" }
+flake8 = "^3.9.2"
+flake8-comprehensions = "^3.5.0"
+flake8-bugbear = "21.4.3"
+flake8-mutable = "1.2.0"
+flake8-eradicate = "1.0.0"
+flake8-pep3101 = "1.3.0"
+flake8-2020 = "1.6.0"
+flake8-pytest-style = "1.4.1"
+commitizen = "2.17.6"
+
+[tool.coverage.report]
+exclude_lines = [
+  'pragma: no cover',
+  'if TYPE_CHECKING:',
+  'if __name__  "__main__":',
+  'if typing.TYPE_CHECKING:',
+  'raise NotImplementedError'
+]
+
+[tool.isort]
+default_section = 'THIRDPARTY'
+indent = '    '
+known_first_party = 'anime_episode_parser'
+length_sort = true
+line_length = 88
+multi_line_output = 3
+no_lines_before = 'LOCALFOLDER'
+use_parentheses = true
+include_trailing_comma = true
+
+[tool.pytest.ini_options]
+addopts = '-v --durations=10'
+junit_family = 'legacy'
