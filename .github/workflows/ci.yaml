@@ -1,0 +1,50 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.6', '3.7', '3.8', '3.9', pypy3]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+
+      - uses: Trim21/setup-poetry@dist/v1
+      - uses: Trim21/install-poetry-project@dist/v1
+
+      - name: test
+        run: coverage run -m pytest
+
+      - uses: codecov/codecov-action@v1
+        if: ${{ startsWith(matrix.python, 'py') }}
+        with:
+          flags: ${{ matrix.python }}
+
+      - uses: codecov/codecov-action@v1
+        if: ${{ !startsWith(matrix.python, 'py') }}
+        with:
+          flags: py${{ matrix.python }}
+
+  dist-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+      - uses: Trim21/setup-poetry@dist/v1
+
+      - run: poetry build
+
+      - run: |
+          pip install twine
+          twine check dist/*
