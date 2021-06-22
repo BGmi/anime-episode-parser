@@ -6,7 +6,7 @@ try parse episode info from title
 poetry add anime_episode_parser
 ```
 
-```python3
+```python
 from anime_episode_parser import parse_episode
 
 title = '[YMDR][哥布林殺手][Goblin Slayer][2018][05][1080p][AVC][JAP][BIG5][MP4-AAC][繁中]'
