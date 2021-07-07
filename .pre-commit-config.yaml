@@ -23,7 +23,7 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: b844b43552d913dbd48025b0a4ac64612c3374f2  # frozen: v2.19.4
+    rev: 513fe79284cd8bae3274563c42c2df226381f6fe  # frozen: v2.20.0
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
@@ -39,7 +39,7 @@ repos:
           - --expand-star-imports
 
   - repo: https://github.com/timothycrosley/isort
-    rev: a6222a8a125ec719724e628a5d3d0d5c60923281  # frozen: 5.8.0
+    rev: 1d7e37c3ff2536abf4359f73c46c418cfec12ada  # frozen: 5.9.1
     hooks:
       - id: isort
 
