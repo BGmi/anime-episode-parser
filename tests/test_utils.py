@@ -33,6 +33,12 @@ _episode_cases: List[Tuple[str, Optional[Tuple[int, int]]]] = [
         "[Lilith-Raws] 86 - Eighty Six - 01 [Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]",
         (1, 1),
     ),
+    ("【幻樱字幕组】【青梅竹马绝对不会输的恋爱喜剧 Osamake】【01~12】【BIG5_MP4】【1280X720】【合集】", (1, 12)),
+    ("【喵萌奶茶屋】★04月新番★[Vivy -Fluorite Eye’s Song-][01-13END][720p][简体][招募翻译校对]", (1, 13)),
+    (
+        "[DBD-Raws][龙珠Z 30周年纪念版/Dragonball Z 30th Anniversary Collection/ドラゴンボール Z][S3][75-107+特典映像][1080P][BDRip][HEVC-10bit][THD+AC3][MKV]",
+        (75, 33),
+    ),
 ]
 
 

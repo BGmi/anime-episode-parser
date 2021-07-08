@@ -13,10 +13,10 @@ _EPISODE_ZH = re.compile(r"第?\s?(\d{1,4})\s?[話话集]")
 _EPISODE_ALL_ZH = re.compile(r"第([^第]*?)[話话集]")
 _EPISODE_ONLY_NUM = re.compile(r"^([\d]{2,})$")
 
-_EPISODE_RANGE = re.compile(r"[^sS]([\d]{2,})\s?-\s?([\d]{2,})")
-_EPISODE_RANGE_ZH = re.compile(r"[第]([\d]{2,})\s?-\s?([\d]{2,})\s?[話话集]")
+_EPISODE_RANGE = re.compile(r"[^sS]([\d]{2,})\s?[-~]\s?([\d]{2,})")
+_EPISODE_RANGE_ZH = re.compile(r"[第]([\d]{2,})\s?[-~]\s?([\d]{2,})\s?[話话集]")
 _EPISODE_RANGE_ALL_ZH_1 = re.compile(r"[全]([\d-]*?)[話话集]")
-_EPISODE_RANGE_ALL_ZH_2 = re.compile(r"第?(\d*)\s?-\s(\d*)[話话集]")
+_EPISODE_RANGE_ALL_ZH_2 = re.compile(r"第?(\d*)\s?[-~]\s(\d*)[話话集]")
 
 _EPISODE_OVA_OAD = re.compile(r"([\d]{2,})\s?\((?:OVA|OAD)\)]")
 _EPISODE_WITH_VERSION = re.compile(r"[【\[](\d+)\s? *v\d(?:END)?[】\]]")
