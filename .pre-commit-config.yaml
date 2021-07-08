@@ -2,7 +2,6 @@ repos:
   - repo: https://github.com/Trim21/pre-commit-hooks
     rev: e4bd622f56f4cb289b7c15f6e9f03698afbc55d2  # frozen: v0.4.1
     hooks:
-      - id: yamlfmt
       - id: poetry-check-lock
       - id: find-trailing-comma
 
@@ -23,7 +22,7 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: b844b43552d913dbd48025b0a4ac64612c3374f2  # frozen: v2.19.4
+    rev: 513fe79284cd8bae3274563c42c2df226381f6fe  # frozen: v2.20.0
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
@@ -39,7 +38,7 @@ repos:
           - --expand-star-imports
 
   - repo: https://github.com/timothycrosley/isort
-    rev: a6222a8a125ec719724e628a5d3d0d5c60923281  # frozen: 5.8.0
+    rev: 1d7e37c3ff2536abf4359f73c46c418cfec12ada  # frozen: 5.9.1
     hooks:
       - id: isort
 
@@ -47,3 +46,8 @@ repos:
     rev: 93c10bf9ebccf8d7cc686b0b9579f2e5e41c5328  # frozen: 21.6b0
     hooks:
       - id: black
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.1
+    hooks:
+      - id: yamllint
