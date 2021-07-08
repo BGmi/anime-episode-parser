@@ -1,6 +1,6 @@
 import re
 import logging
-from typing import List, Tuple, Union, Callable
+from typing import List, Tuple, Union, Callable, Optional
 
 from anime_episode_parser.cn import chinese_to_arabic
 
@@ -48,20 +48,19 @@ def episode_range(
     return _0, _1 - _0 + 1
 
 
-def parse_episode(episode_title: str) -> Union[Tuple[int, int], None]:
+def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
     """
     parse episode from title
     :param episode_title: episode title
     :type episode_title: str
-    :return: episode of this title
-    :rtype: int
+    :return: episode of start, episode count
     """
     spare = None
 
     _ = _EPISODE_RANGE_ALL_ZH_1.findall(episode_title)
     if _ and _[0]:
         logger.debug("matching with _EPISODE_RANGE_ALL_ZH_1 '%s'", _)
-        return None
+        return None, None
 
     _ = _EPISODE_RANGE_ALL_ZH_2.findall(episode_title)
     if _ and _[0]:
@@ -122,4 +121,4 @@ def parse_episode(episode_title: str) -> Union[Tuple[int, int], None]:
     if spare:
         return spare, 1
 
-    return None
+    return None, None
