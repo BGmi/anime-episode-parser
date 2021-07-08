@@ -23,8 +23,9 @@ _episode_cases: List[Tuple[str, Optional[Tuple[int, int]]]] = [
     ("不知道什么片 全20话", None),
     ("[银色子弹字幕组][名侦探柯南][第1005集 36格的完美犯罪（后篇）][繁日双语MP4][1080P]", (1005, 1)),
     (
-        "[Lilith-Raws] 如果究极进化的完全沉浸 RPG 比现实还更像垃圾游戏的话 / Full Dive - 02 "
-        "[Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]"(2, 1),
+        "[Lilith-Raws] 如果究极进化的完全沉浸 RPG 比现实还更像垃圾游戏的话 "
+        "/ Full Dive - 02 [Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]",
+        (2, 1),
     ),
     (
         "[Lilith-Raws] 86 - Eighty Six - 01 [Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]",
