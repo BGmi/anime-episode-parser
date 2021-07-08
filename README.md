@@ -20,4 +20,7 @@ assert (34, 2) == parse_episode(title)
 
 # 34 for episode start
 # 2 for episodes count
+
+title = "something can't parse"
+assert (None, None) == parse_episode(title)
 ```
