@@ -23,11 +23,8 @@ _episode_cases: List[Tuple[str, Optional[Tuple[int, int]]]] = [
     ("不知道什么片 全20话", None),
     ("[银色子弹字幕组][名侦探柯南][第1005集 36格的完美犯罪（后篇）][繁日双语MP4][1080P]", (1005, 1)),
     (
-        (
-            "[Lilith-Raws] 如果究极进化的完全沉浸 RPG 比现实还更像垃圾游戏的话 / Full Dive - 02 "
-            "[Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]"
-        ),
-        (2, 1),
+        "[Lilith-Raws] 如果究极进化的完全沉浸 RPG 比现实还更像垃圾游戏的话 / Full Dive - 02 "
+        "[Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]"(2, 1),
     ),
     (
         "[Lilith-Raws] 86 - Eighty Six - 01 [Baha][WEB-DL][1080p][AVC AAC][CHT][MP4]",
@@ -36,7 +33,8 @@ _episode_cases: List[Tuple[str, Optional[Tuple[int, int]]]] = [
     ("【幻樱字幕组】【青梅竹马绝对不会输的恋爱喜剧 Osamake】【01~12】【BIG5_MP4】【1280X720】【合集】", (1, 12)),
     ("【喵萌奶茶屋】★04月新番★[Vivy -Fluorite Eye’s Song-][01-13END][720p][简体][招募翻译校对]", (1, 13)),
     (
-        "[DBD-Raws][龙珠Z 30周年纪念版/Dragonball Z 30th Anniversary Collection/ドラゴンボール Z][S3][75-107+特典映像][1080P][BDRip][HEVC-10bit][THD+AC3][MKV]",
+        "[DBD-Raws][龙珠Z 30周年纪念版/Dragonball Z 30th Anniversary Collection/ドラゴンボール Z][S3]"
+        "[75-107+特典映像][1080P][BDRip][HEVC-10bit][THD+AC3][MKV]",
         (75, 33),
     ),
 ]
