@@ -35,10 +35,10 @@ python = "^3.6.1"
 coverage = { version = "5.5", extras = ['toml'] }
 pytest = "6.2.4"
 # lint
-pre-commit = { version = "==2.13.0", markers = "implementation_name != 'pypy'" }
+pre-commit = { version = "==2.14.0", markers = "implementation_name != 'pypy'" }
 mypy = { version = "==0.910", markers = "implementation_name != 'pypy'" }
 flake8 = "3.9.2"
-flake8-comprehensions = "3.5.0"
+flake8-comprehensions = "==3.6.1"
 flake8-bugbear = "21.4.3"
 flake8-mutable = "1.2.0"
 flake8-eradicate = "==1.1.0"
