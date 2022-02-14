@@ -33,7 +33,9 @@ jobs:
         with:
           flags: ${{ matrix.python }}
 
-      - uses: codecov/codecov-action@v1
+      - run: coverage xml
+
+      - uses: codecov/codecov-action@v2
         if: ${{ !startsWith(matrix.python, 'py') }}
         with:
           flags: py${{ matrix.python }}
