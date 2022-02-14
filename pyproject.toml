@@ -22,13 +22,14 @@ classifiers = [
   'Programming Language :: Python :: 3.7',
   'Programming Language :: Python :: 3.8',
   'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
   'Programming Language :: Python :: Implementation :: CPython',
   'Programming Language :: Python :: Implementation :: PyPy'
 ]
 packages = [{ include = "anime_episode_parser" }]
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 # tests
