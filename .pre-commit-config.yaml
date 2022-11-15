@@ -22,13 +22,13 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: d50ce21fc45d014790d4ecf71d1b1d7ccc450526  # frozen: v3.1.0
+    rev: c1b1c5380dbb12b30ec0d0652df204d21ae003b8  # frozen: v3.2.2
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
 
   - repo: https://github.com/myint/autoflake
-    rev: d603145783430b4e0f9ec3ab0227e194ad5d1d49  # frozen: v1.7.4
+    rev: 910a104e8f3b86e46ff1da8b0ea531e5f023edc7  # frozen: v1.7.7
     hooks:
       - id: autoflake
         args:
