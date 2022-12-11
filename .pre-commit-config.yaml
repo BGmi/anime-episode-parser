@@ -6,7 +6,7 @@ repos:
       - id: find-trailing-comma
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 3298ddab3c13dd77d6ce1fc0baf97691430d84b0  # frozen: v4.3.0
+    rev: f71fa2c1f9cf5cb705f73dffe4b21f7c61470ba9  # frozen: v4.4.0
     hooks:
       - id: check-merge-conflict
       - id: trailing-whitespace
@@ -22,13 +22,13 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: d50ce21fc45d014790d4ecf71d1b1d7ccc450526  # frozen: v3.1.0
+    rev: 01cee377ba3a5264c7fbe7b6beae7b575f764dc3  # frozen: v3.3.1
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
 
   - repo: https://github.com/myint/autoflake
-    rev: d603145783430b4e0f9ec3ab0227e194ad5d1d49  # frozen: v1.7.4
+    rev: 75f8afa727c367ecc6829f31866e9c6fbb908bc6  # frozen: v2.0.0
     hooks:
       - id: autoflake
         args:
@@ -43,7 +43,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/psf/black
-    rev: 27d20144a7517594e24a1649451177b2a11284be  # frozen: 22.10.0
+    rev: 2ddea293a88919650266472186620a98a4a8bb37  # frozen: 22.12.0
     hooks:
       - id: black
 
