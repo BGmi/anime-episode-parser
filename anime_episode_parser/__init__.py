@@ -1,11 +1,7 @@
 import re
-import logging
 from typing import List, Tuple, Union, Callable, Optional
 
 from anime_episode_parser.cn import chinese_to_arabic
-
-logger = logging.getLogger("anime-episode-parser")
-
 
 _EPISODE_WITH_BRACKETS = re.compile(r"[【\[]E?(\d+)\s?(?:END)?[】\]]")
 
@@ -59,50 +55,40 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
 
     _ = _EPISODE_RANGE_ALL_ZH_1.findall(episode_title)
     if _ and _[0]:
-        logger.debug("matching with _EPISODE_RANGE_ALL_ZH_1 '%s'", _)
         return None, None
 
     _ = _EPISODE_RANGE_ALL_ZH_2.findall(episode_title)
     if _ and _[0]:
-        logger.debug("matching with EPISODE_RANGE_ALL_ZH_2 %s", _)
         return episode_range(_)
 
     _ = _EPISODE_RANGE.findall(episode_title)
     if _ and _[0]:
-        logger.debug("matching with EPISODE_RANG %s", _)
         return episode_range(_)
 
     _ = _EPISODE_RANGE_ZH.findall(episode_title)
     if _ and _[0]:
-        logger.debug("return episode range zh")
         return int(_[0]), int(_[1]) - int(_[0])
 
     _ = _EPISODE_ZH.findall(episode_title)
     if _ and _[0].isdigit():
-        logger.debug("return episode zh")
         return int(_[0]), 1
 
     _ = _EPISODE_ALL_ZH.findall(episode_title)
     if _ and _[0]:
         try:
-            logger.debug("try return episode all zh %s", _)
             e = chinese_to_arabic(_[0])
-            logger.debug("return episode all zh")
             return e, 1
         except Exception:
-            logger.debug("can't convert %s to int", _[0])
+            pass
 
     _ = _EPISODE_WITH_VERSION.findall(episode_title)
     if _ and _[0].isdigit():
-        logger.debug("return episode range with version")
         return int(_[0]), 1
 
     _ = _EPISODE_WITH_BRACKETS.findall(episode_title)
     if _:
-        logger.debug("return episode with brackets")
         return get_real_episode(_), 1
 
-    logger.debug("don't match any regex, try match after split")
     rest: List[int] = []
     for i in episode_title.replace("[", " ").replace("【", ",").split(" "):
         for regexp in _PATTERNS:
@@ -112,7 +98,6 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
                 if m > 1000:
                     spare = m
                 else:
-                    logger.debug(f"match {i} '{regexp.pattern}' {m}")
                     rest.append(m)
 
     if rest:
