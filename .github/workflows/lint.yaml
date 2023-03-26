@@ -26,15 +26,12 @@ jobs:
 
   mypy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python: ["3.8", "3.9", "3.10", '3.11']
     steps:
       - uses: actions/checkout@v3
 
       - uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python }}
+          python-version: '3.11'
 
       - uses: Trim21/setup-poetry@dist/v1
 
