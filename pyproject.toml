@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "anime-episode-parser"
-version = "0.0.7"
+version = "0.0.8"
 description = 'A library to parse episode info from anime title'
 authors = ["Trim21 <trim21.me@gmail.com>", "RicterZ <ricterzheng@gmail.com>"]
 readme = 'README.md'
