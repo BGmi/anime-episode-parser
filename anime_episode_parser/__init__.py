@@ -100,16 +100,17 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
         for regexp in _PATTERNS:
             match = regexp.findall(i)
             if match:
-                m = 0
+                m = None
                 if isinstance(match[0], tuple) and match[0][0].isdigit():
                     m = int(match[0][0])
                 elif match[0].isdigit():
                     m = int(match[0])
 
-                if m > 1000:
-                    spare = m
-                else:
-                    rest.append(m)
+                if m is not None:
+                    if m > 1000:
+                        spare = m
+                    else:
+                        rest.append(m)
 
     if rest:
         return get_real_episode(rest), 1
