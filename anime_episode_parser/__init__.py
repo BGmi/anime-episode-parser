@@ -10,6 +10,7 @@ _EPISODE_ALL_ZH = re.compile(r"第([^第]*?)[話话集]")
 _EPISODE_ONLY_NUM = re.compile(r"^([\d]{2,})$")
 
 _EPISODE_RANGE = re.compile(r"[^sS]([\d]{2,})\s?[-~]\s?([\d]{2,})")
+_EPISODE_RANGE_2 = re.compile(r"\[(\d+)-(\d+)]")
 _EPISODE_RANGE_ZH = re.compile(r"[第]([\d]{2,})\s?[-~]\s?([\d]{2,})\s?[話话集]")
 _EPISODE_RANGE_ALL_ZH_1 = re.compile(r"[全]([\d-]*?)[話话集]")
 _EPISODE_RANGE_ALL_ZH_2 = re.compile(r"第?(\d*)\s?[-~]\s(\d*)[話话集]")
@@ -23,6 +24,7 @@ _PATTERNS = (
     _EPISODE_WITH_BRACKETS,
     _EPISODE_ONLY_NUM,
     _EPISODE_RANGE,
+    _EPISODE_RANGE_2,
     _EPISODE_RANGE_ALL_ZH_1,
     _EPISODE_RANGE_ALL_ZH_2,
     _EPISODE_OVA_OAD,
@@ -65,6 +67,10 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
     if _ and _[0] and (int(_[0][0]) < int(_[0][1])):
         return episode_range(_)
 
+    _ = _EPISODE_RANGE_2.findall(episode_title)
+    if _ and _[0] and (int(_[0][0]) < int(_[0][1])):
+        return episode_range(_)
+
     _ = _EPISODE_RANGE_ZH.findall(episode_title)
     if _ and _[0] and (int(_[0][0]) < int(_[0][1])):
         return int(_[0]), int(_[1]) - int(_[0])
@@ -93,12 +99,15 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
     for i in episode_title.replace("[", " ").replace("【", ",").split(" "):
         for regexp in _PATTERNS:
             match = regexp.findall(i)
-            if match and match[0].isdigit():
-                m = int(match[0])
-                if m > 1000:
-                    spare = m
-                else:
-                    rest.append(m)
+            if match:
+                if isinstance(match[0], tuple):
+                    match = match[0]
+                if match[0].isdigit():
+                    m = int(match[0])
+                    if m > 1000:
+                        spare = m
+                    else:
+                        rest.append(m)
 
     if rest:
         return get_real_episode(rest), 1
