@@ -58,15 +58,15 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
         return None, None
 
     _ = _EPISODE_RANGE_ALL_ZH_2.findall(episode_title)
-    if _ and _[0]:
+    if _ and _[0] and (int(_[0][0]) < int(_[0][1])):
         return episode_range(_)
 
     _ = _EPISODE_RANGE.findall(episode_title)
-    if _ and _[0]:
+    if _ and _[0] and (int(_[0][0]) < int(_[0][1])):
         return episode_range(_)
 
     _ = _EPISODE_RANGE_ZH.findall(episode_title)
-    if _ and _[0]:
+    if _ and _[0] and (int(_[0][0]) < int(_[0][1])):
         return int(_[0]), int(_[1]) - int(_[0])
 
     _ = _EPISODE_ZH.findall(episode_title)

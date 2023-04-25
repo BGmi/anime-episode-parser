@@ -40,6 +40,12 @@ _episode_cases: List[Tuple[str, Tuple[Optional[int], Optional[int]]]] = [
     ),
     ("[银色子弹字幕组][名侦探柯南][第1068集 圆谷光彦的侦探笔记][简日双语MP4][1080P]", (1068, 1)),
     ("[银色子弹字幕组][名侦探柯南][第1071集 工藤优作的推理秀（前篇）][简日双语MP4][1080P]", (1071, 1)),
+    (
+        "[喵萌Production&LoliHouse] 偶像大师 灰姑娘女孩 U149 / "
+        "THE IDOLM@STER CINDERELLA GIRLS U149 - 03 [WebRip 1080p HEVC-10bit AAC]"
+        "[简繁日内封字幕]",
+        (3, 1),
+    ),
 ]
 
 
