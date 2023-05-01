@@ -1,4 +1,5 @@
 import re
+import contextlib
 from typing import List, Tuple, Union, Callable, Optional
 
 from anime_episode_parser.cn import chinese_to_arabic
@@ -81,11 +82,9 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
 
     _ = _EPISODE_ALL_ZH.findall(episode_title)
     if _ and _[0]:
-        try:
+        with contextlib.suppress(Exception):
             e = chinese_to_arabic(_[0])
             return e, 1
-        except Exception:
-            pass
 
     _ = _EPISODE_WITH_VERSION.findall(episode_title)
     if _ and _[0].isdigit():
