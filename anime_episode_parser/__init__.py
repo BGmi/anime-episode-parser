@@ -17,7 +17,7 @@ _EPISODE_RANGE_ALL_ZH_1 = re.compile(r"[全]([\d-]*?)[話话集]")
 _EPISODE_RANGE_ALL_ZH_2 = re.compile(r"第?(\d*)\s?[-~]\s(\d*)[話话集]")
 
 _EPISODE_OVA_OAD = re.compile(r"([\d]{2,})\s?\((?:OVA|OAD)\)]")
-_EPISODE_WITH_VERSION = re.compile(r"[【\[](\d+)\s? *v\d(?:END)?[】\]]")
+_EPISODE_WITH_VERSION = re.compile(r"[【\[\s](\d+)\s? *v\d(?:END)?[】\]\s]")
 
 _PATTERNS = (
     _EPISODE_ZH,
