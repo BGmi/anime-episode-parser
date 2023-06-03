@@ -47,6 +47,12 @@ _episode_cases: List[Tuple[str, Tuple[Optional[int], Optional[int]]]] = [
         (3, 1),
     ),
     (
+        "[喵萌Production&LoliHouse] 偶像大师 灰姑娘女孩 U149 / "
+        "THE IDOLM@STER CINDERELLA GIRLS U149 - 04v2 [WebRip 1080p HEVC-10bit AAC]"
+        "[简繁日内封字幕]",
+        (4, 1),
+    ),
+    (
         "[星火字幕组][填坑][2017-03-18&2017-3-24][名侦探柯南][853-854][樱花班的回忆][生肉无字幕[1080P][MP4]",
         (853, 2),
     ),
