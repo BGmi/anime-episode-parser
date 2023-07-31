@@ -38,7 +38,7 @@ pytest = "==7.4.0"
 # lint
 pre-commit = { version = "==3.3.3", python = '^3.9', markers = "implementation_name != 'pypy'" }
 mypy = { version = "==1.4.1", python = '^3.9', markers = "implementation_name != 'pypy'" }
-ruff = "0.0.275"
+ruff = "0.0.281"
 
 [tool.coverage.report]
 exclude_lines = [
