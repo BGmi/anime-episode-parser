@@ -42,6 +42,6 @@ repos:
       - id: black
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.31.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
