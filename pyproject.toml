@@ -33,7 +33,7 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 # tests
-coverage = { version = "==7.6.0", extras = ['toml'] }
+coverage = { version = "==7.6.1", extras = ['toml'] }
 pytest = "==8.2.2"
 # lint
 pre-commit = { version = "==3.7.1", python = '^3.9', markers = "implementation_name != 'pypy'" }
