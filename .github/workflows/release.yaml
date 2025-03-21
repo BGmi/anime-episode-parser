@@ -15,11 +15,13 @@ jobs:
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
-      - uses: Trim21/setup-poetry@dist/v1
 
-      - run: poetry publish --build
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_TOKEN }}
 
       - name: Get Tag Name
         run: echo "TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV

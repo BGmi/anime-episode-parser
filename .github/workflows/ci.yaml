@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ['3.7', '3.8', '3.9', '3.10', '3.11']
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
 
-      - uses: Trim21/setup-poetry@dist/v1
-      - uses: Trim21/install-poetry-project@dist/v1
+      - uses: astral-sh/setup-uv@v5
+      - run: |
+          uv sync --locked
+          echo .venv/bin/ >> $GITHUB_PATH
 
       - name: test
         run: coverage run -m pytest
@@ -50,10 +50,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - uses: Trim21/setup-poetry@dist/v1
+      - run: pipx run build
 
-      - run: poetry build
-
-      - run: |
-          pip install twine
-          twine check dist/*
+      - run: pipx run twine check dist/*

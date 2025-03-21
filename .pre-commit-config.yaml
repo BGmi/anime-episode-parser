@@ -9,39 +9,18 @@ repos:
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: check-json
-      - id: check-added-large-files  # check for file bigger than 500kb
+      - id: check-added-large-files # check for file bigger than 500kb
       - id: check-yaml
       - id: debug-statements
       - id: fix-encoding-pragma
         args: [--remove]
 
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.17.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.1
     hooks:
-      - id: pyupgrade
-        args: [--py36-plus]
-
-  - repo: https://github.com/myint/autoflake
-    rev: v2.3.1
-    hooks:
-      - id: autoflake
-        args:
-          - --in-place
-          - --remove-unused-variables
-          - --remove-all-unused-imports
-          - --expand-star-imports
-
-  - repo: https://github.com/timothycrosley/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
+      - id: ruff
 
   - repo: https://github.com/psf/black
     rev: 24.8.0
     hooks:
       - id: black
-
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
-    hooks:
-      - id: yamllint
