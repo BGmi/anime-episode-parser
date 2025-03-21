@@ -32,6 +32,9 @@ classifiers = [
 homepage = 'https://github.com/BGmi/anime-episode-parser'
 repository = 'https://github.com/BGmi/anime-episode-parser'
 
+[dependency-groups]
+dev = ["coverage>=7.7.0", "mypy>=1.15.0", "pytest>=8.3.5"]
+
 [tool.coverage.report]
 exclude_lines = [
   'pragma: no cover',
