@@ -1,44 +1,39 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["flit-core~=3.9"]
+build-backend = "flit_core.buildapi"
 
-[tool.poetry]
+[project]
 name = "anime-episode-parser"
 version = "0.0.12"
 description = 'A library to parse episode info from anime title'
-authors = ["Trim21 <trim21.me@gmail.com>", "RicterZ <ricterzheng@gmail.com>"]
+authors = [
+  { name = "Trim21", email = "trim21.me@gmail.com" },
+  { name = "RicterZ", email = "ricterzheng@gmail.com" },
+]
 readme = 'README.md'
 license = 'MIT'
-homepage = 'https://github.com/BGmi/anime-episode-parser'
-repository = 'https://github.com/BGmi/anime-episode-parser'
 keywords = ['anime']
+requires-python = ">=3.9,<4"
 classifiers = [
   'Development Status :: 4 - Beta',
   'Intended Audience :: Other Audience',
   'Natural Language :: Chinese (Traditional)',
-  'License :: OSI Approved :: MIT License',
   'Programming Language :: Python',
-  'Programming Language :: Python :: 3.6',
-  'Programming Language :: Python :: 3.7',
-  'Programming Language :: Python :: 3.8',
   'Programming Language :: Python :: 3.9',
   'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Programming Language :: Python :: 3.12',
+  'Programming Language :: Python :: 3.13',
   'Programming Language :: Python :: Implementation :: CPython',
   'Programming Language :: Python :: Implementation :: PyPy'
 ]
-packages = [{ include = "anime_episode_parser" }]
 
-[tool.poetry.dependencies]
-python = "^3.8"
+[project.urls]
+homepage = 'https://github.com/BGmi/anime-episode-parser'
+repository = 'https://github.com/BGmi/anime-episode-parser'
 
-[tool.poetry.dev-dependencies]
-# tests
-coverage = { version = "==7.6.1", extras = ['toml'] }
-pytest = "==8.3.3"
-# lint
-pre-commit = { version = "==3.8.0", python = '^3.9', markers = "implementation_name != 'pypy'" }
-mypy = { version = "==1.11.2", python = '^3.9', markers = "implementation_name != 'pypy'" }
-ruff = "0.6.8"
+[dependency-groups]
+dev = ["coverage>=7.7.0", "mypy>=1.15.0", "pytest>=8.3.5"]
 
 [tool.coverage.report]
 exclude_lines = [
@@ -62,7 +57,6 @@ include_trailing_comma = true
 
 [tool.pytest.ini_options]
 addopts = '-rqa'
-junit_family = 'legacy'
 
 [tool.mypy]
 disallow_untyped_defs = true
@@ -71,8 +65,7 @@ warn_unused_configs = true
 show_error_codes = true
 pretty = true
 
-
-[tool.ruff]
+[tool.ruff.lint]
 select = [
   "B",
   "C",
@@ -105,7 +98,7 @@ select = [
   "RUF",
   "SIM",
   "SLF",
-  "TCH",
+  "TC",
   "TID",
   "TRY",
   "YTT",
@@ -130,7 +123,7 @@ ignore = [
   'I001',
   'RUF001',
   'SIM108',
-  'TCH003',
+  'TC003',
   'RUF003',
   'RET504',
   'TRY300',
@@ -142,47 +135,5 @@ ignore = [
   'PLR2004',
   'PGH003',
 ]
-
 # Allow autofix for all enabled rules (when `--fix`) is provided.
-fixable = [
-  "A",
-  "B",
-  "C",
-  "E",
-  "F",
-  "G",
-  "I",
-  "N",
-  "Q",
-  "S",
-  "W",
-  "BLE",
-  "DJ",
-  "DTZ",
-  "EM",
-  "ERA",
-  "EXE",
-  "FBT",
-  "ICN",
-  "INP",
-  "ISC",
-  "NPY",
-  "PD",
-  "PGH",
-  "PIE",
-  "PL",
-  "PT",
-  "PTH",
-  "PYI",
-  "RET",
-  "RSE",
-  "RUF",
-  "SIM",
-  "SLF",
-  "TCH",
-  "TID",
-  "TRY",
-  "YTT",
-]
-
-target-version = "py310"
+fixable = ['ALL']
