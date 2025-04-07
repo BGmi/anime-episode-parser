@@ -14,13 +14,13 @@ jobs:
         python: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5
         with:
           python-version: ${{ matrix.python }}
 
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@0c5e2b8115b80b4c7c5ddf6ffdd634974642d182 # v5
       - run: |
           uv sync --locked
           echo .venv/bin/ >> $GITHUB_PATH
@@ -30,12 +30,12 @@ jobs:
 
       - run: coverage xml
 
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
         if: ${{ startsWith(matrix.python, 'py') }}
         with:
           flags: ${{ matrix.python }}
 
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
         if: ${{ !startsWith(matrix.python, 'py') }}
         with:
           flags: py${{ matrix.python }}
@@ -44,9 +44,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5
         with:
           python-version: "3.x"
 
