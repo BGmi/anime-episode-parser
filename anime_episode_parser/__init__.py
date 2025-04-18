@@ -101,7 +101,9 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
         return get_real_episode(_), 1
 
     rest: List[int] = []
-    for i in episode_title.replace("★"," ").replace("[", " ").replace("【", ",").split(" "):
+    for i in (
+        episode_title.replace("★", " ").replace("[", " ").replace("【", ",").split(" ")
+    ):
         for regexp in _PATTERNS:
             match = regexp.findall(i)
             if match:

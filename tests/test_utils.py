@@ -105,7 +105,7 @@ _episode_cases: List[Tuple[str, Tuple[Optional[int], Optional[int]]]] = [
     (
         "六四位元字幕组★重启人生的千金小姐正在攻略龙帝陛下 Yarinaoshi Reijou wa Ryuutei Heika o Kouryakuchuu★11★1920x1080★AVC AAC MP4★繁体中文",
         (11, 1),
-    ),  
+    ),
 ]
 
 
