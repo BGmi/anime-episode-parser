@@ -9,6 +9,7 @@ _EPISODE_WITH_BRACKETS = re.compile(r"[【\[]E?(\d+)\s?(?:END)?[】\]]")
 _EPISODE_ZH = re.compile(r"第?\s?(\d{1,4})\s?[話话集]")
 _EPISODE_ALL_ZH = re.compile(r"第([^第]*?)[話话集]")
 _EPISODE_ONLY_NUM = re.compile(r"^([\d]{2,})$")
+_EPISODE_WITH_EP = re.compile(r"EP([\d]{2,})")
 
 _EPISODE_RANGE = re.compile(r"[^sS]([\d]{2,})\s?[-~]\s?([\d]{2,})")
 _EPISODE_RANGE_2 = re.compile(r"\[(\d+)-(\d+)]")
@@ -24,6 +25,7 @@ _PATTERNS = (
     _EPISODE_ALL_ZH,
     _EPISODE_WITH_BRACKETS,
     _EPISODE_ONLY_NUM,
+    _EPISODE_WITH_EP,
     _EPISODE_RANGE,
     _EPISODE_RANGE_2,
     _EPISODE_RANGE_ALL_ZH_1,
@@ -94,8 +96,14 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
     if _:
         return get_real_episode(_), 1
 
+    _ = _EPISODE_WITH_EP.findall(episode_title)
+    if _:
+        return get_real_episode(_), 1
+
     rest: List[int] = []
-    for i in episode_title.replace("[", " ").replace("【", ",").split(" "):
+    for i in (
+        episode_title.replace("★", " ").replace("[", " ").replace("【", ",").split(" ")
+    ):
         for regexp in _PATTERNS:
             match = regexp.findall(i)
             if match:
