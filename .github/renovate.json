@@ -13,5 +13,8 @@
       ],
       "rangeStrategy": "pin"
     }
-  ]
+  ],
+  "lockFileMaintenance": {
+    "automerge": true
+  }
 }
