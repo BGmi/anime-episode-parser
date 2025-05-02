@@ -30,12 +30,12 @@ jobs:
 
       - run: coverage xml
 
-      - uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
+      - uses: codecov/codecov-action@ad3126e916f78f00edff4ed0317cf185271ccc2d # v5
         if: ${{ startsWith(matrix.python, 'py') }}
         with:
           flags: ${{ matrix.python }}
 
-      - uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5
+      - uses: codecov/codecov-action@ad3126e916f78f00edff4ed0317cf185271ccc2d # v5
         if: ${{ !startsWith(matrix.python, 'py') }}
         with:
           flags: py${{ matrix.python }}
