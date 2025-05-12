@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "anime-episode-parser"
-version = "0.0.12"
+version = "0.0.13"
 description = 'A library to parse episode info from anime title'
 authors = [
   { name = "Trim21", email = "trim21.me@gmail.com" },
