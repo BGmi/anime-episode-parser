@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      - uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6
+      - uses: astral-sh/setup-uv@bd01e18f51369d5a26f1651c3cb451d3417e3bba # v6
       - run: |
           uv sync --locked
           echo .venv/bin/ >> $GITHUB_PATH
