@@ -106,6 +106,10 @@ _episode_cases: List[Tuple[str, Tuple[Optional[int], Optional[int]]]] = [
         "六四位元字幕组★重启人生的千金小姐正在攻略龙帝陛下 Yarinaoshi Reijou wa Ryuutei Heika o Kouryakuchuu★11★1920x1080★AVC AAC MP4★繁体中文",
         (11, 1),
     ),
+    (
+        "乱马1/2「らんま1/2」Ranma1/2 2024年版 第2期 S02E09 1080p 日英双语-多国字幕",
+        (9, 1),
+    ),
 ]
 
 
