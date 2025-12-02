@@ -109,7 +109,7 @@ _episode_cases: List[Tuple[str, Tuple[Optional[int], Optional[int]]]] = [
     (
         "乱马1/2「らんま1/2」Ranma1/2 2024年版 第2期 S02E09 1080p 日英双语-多国字幕",
         (9, 1),
-    )
+    ),
 ]
 
 
