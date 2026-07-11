@@ -110,6 +110,58 @@ _episode_cases: List[Tuple[str, Tuple[Optional[int], Optional[int]]]] = [
         "乱马1/2「らんま1/2」Ranma1/2 2024年版 第2期 S02E09 1080p 日英双语-多国字幕",
         (9, 1),
     ),
+    (
+        "I Became a Legend after My 10 Year Long Last Stand S01E2 1080p",
+        (2, 1),
+    ),
+    (
+        "I Became a Legend after My 10 Year Long Last Stand S01E01 1080p",
+        (1, 1),
+    ),
+    (
+        "I Became a Legend after My 10 Year Long Last Stand S01E12 1080p",
+        (12, 1),
+    ),
+    (
+        "I Became a Legend after My 10 Year Long Last Stand s1e1 1080p",
+        (1, 1),
+    ),
+    (
+        "I Became a Legend after My 10 Year Long Last Stand Season 1 Episode 12 1080p",
+        (12, 1),
+    ),
+    (
+        "I Became a Legend after My 10 Year Long Last Stand 1x12 1080p",
+        (12, 1),
+    ),
+    (
+        "THE.GHOST.IN.THE.SHELL.S01E01.EPISODE.01.PROLOGUE.SUPER.SPARTAN.i.1080p.AMZN.WEB-DL.DUAL.DDP2.0.H.264-VARYG.mkv",
+        (1, 1),
+    ),
+    (
+        "I.Became.a.Legend.after.My.10.Year.Long.Last.Stand.S01E02.There.Was.a.Formidable.Foe.Deep.inside.the.Den.1080p.CR.WEB-DL.AAC2.0.H.264-VARYG.mkv",
+        (2, 1),
+    ),
+    (
+        "THE.GHOST.IN.THE.SHELL.S1E1.EPISODE.01.PROLOGUE.1080p.mkv",
+        (1, 1),
+    ),
+    (
+        "the.ghost.in.the.shell.s01e01.episode.01.prologue.1080p.mkv",
+        (1, 1),
+    ),
+    (
+        "the.ghost.in.the.shell.s01e1.episode.01.prologue.1080p.mkv",
+        (1, 1),
+    ),
+    (
+        "the.ghost.in.the.shell.s1e10.episode.10.prologue.1080p.mkv",
+        (10, 1),
+    ),
+    (
+        "I.Became.a.Legend.after.My.10.Year.Long.Last.Stand.1x02.Title.1080p.mkv",
+        (2, 1),
+    ),
 ]
 
 

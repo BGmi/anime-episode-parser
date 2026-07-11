@@ -10,7 +10,12 @@ _EPISODE_ZH = re.compile(r"第?\s?(\d{1,4})\s?[話话集]")
 _EPISODE_ALL_ZH = re.compile(r"第([^第]*?)[話话集]")
 _EPISODE_ONLY_NUM = re.compile(r"^([\d]{2,})$")
 _EPISODE_WITH_EP = re.compile(r"EP([\d]{2,})")
-_EPISODE_WITH_SEASON = re.compile(r"S\d+E([\d]{2,})")
+_EPISODE_WITH_SEASON = re.compile(r"\bS\d{1,2}E(\d{1,4})\b", re.IGNORECASE)
+_EPISODE_WITH_SEASON_WORDS = re.compile(
+    r"\bSeason\s+\d{1,2}\s+Episode\s+(\d{1,4})\b",
+    re.IGNORECASE,
+)
+_EPISODE_WITH_SEASON_X = re.compile(r"\b\d{1,2}x(\d{1,4})\b", re.IGNORECASE)
 
 _EPISODE_RANGE = re.compile(r"[^sS]([\d]{2,})\s?[-~]\s?([\d]{2,})")
 _EPISODE_RANGE_2 = re.compile(r"\[(\d+)-(\d+)]")
@@ -34,6 +39,8 @@ _PATTERNS = (
     _EPISODE_OVA_OAD,
     _EPISODE_WITH_VERSION,
     _EPISODE_WITH_SEASON,
+    _EPISODE_WITH_SEASON_WORDS,
+    _EPISODE_WITH_SEASON_X,
 )
 
 
@@ -101,6 +108,15 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
     _ = _EPISODE_WITH_EP.findall(episode_title)
     if _:
         return get_real_episode(_), 1
+
+    for regexp in (
+        _EPISODE_WITH_SEASON,
+        _EPISODE_WITH_SEASON_WORDS,
+        _EPISODE_WITH_SEASON_X,
+    ):
+        _ = regexp.findall(episode_title)
+        if _:
+            return get_real_episode(_), 1
 
     rest: List[int] = []
     for i in (
