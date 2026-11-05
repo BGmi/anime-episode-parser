@@ -40,6 +40,12 @@ jobs:
         with:
           flags: py${{ matrix.python }}
 
+  test-checks:
+    needs: [pytest]
+    runs-on: ubuntu-slim
+    steps:
+      - run: echo "all test checks passed"
+
   dist-files:
     runs-on: ubuntu-latest
 

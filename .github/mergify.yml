@@ -1,0 +1,24 @@
+pull_request_rules:
+  - name: label conflicts
+    conditions:
+      - conflict
+    actions:
+      label:
+        toggle:
+          - conflict
+
+  - name: automatic merge
+    conditions:
+      - base=master
+      - label=ci:auto-merge
+      - not:
+          and:
+            - 'head*=renovate/lockfile-maintenance-*'
+            - 'created-at>24h ago'
+      - check-success=test-checks
+      - check-success=dist-files
+      - check-success=mypy
+      - check-success=pre-commit
+    actions:
+      merge:
+        method: squash

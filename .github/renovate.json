@@ -6,6 +6,8 @@
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "rangeStrategy": "widen",
+  "labels": ["ci:auto-merge", "dependencies"],
+  "rebaseWhen": "conflicted",
   "packageRules": [
     {
       "matchDepTypes": [
