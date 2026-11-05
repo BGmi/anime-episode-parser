@@ -1,6 +1,6 @@
 import re
 import contextlib
-from typing import List, Tuple, Union, Callable, Optional
+from typing import List, Tuple, Union, Callable, Optional, Sequence
 
 from anime_episode_parser.cn import chinese_to_arabic
 
@@ -49,7 +49,7 @@ def get_real_episode(episode_list: Union[List[str], List[int]]) -> int:
 
 
 def episode_range(
-    e: Tuple[str, str],
+    e: Sequence[Tuple[str, str]],
     convert: Callable[[str], int] = int,
 ) -> Tuple[int, int]:
     _ = e[0]
@@ -126,10 +126,12 @@ def parse_episode(episode_title: str) -> Tuple[Optional[int], Optional[int]]:
             match = regexp.findall(i)
             if match:
                 m = None
-                if isinstance(match[0], tuple) and match[0][0].isdigit():
-                    m = int(match[0][0])
-                elif match[0].isdigit():
-                    m = int(match[0])
+                first = match[0]
+                if isinstance(first, tuple):
+                    if first[0].isdigit():
+                        m = int(first[0])
+                elif first.isdigit():
+                    m = int(first)
 
                 if m is not None:
                     if m > 1000:
